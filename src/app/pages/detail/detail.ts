@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {DragonBall} from '../../../services/dragon-ball/dragon-ball';
 import {CharacterItemModel} from '../../models/charactersitem.models';
 import {Observable, Subscription} from 'rxjs';
@@ -30,7 +30,7 @@ export class Detail implements OnInit {
   characterDetail!: CharacterItemModel;
   characterDetail$: Observable<CharacterItemModel>;
   subscription: Subscription[] = [];
-  constructor(private activateRoute: ActivatedRoute, private dragonBallService: DragonBall ) {
+  constructor(private activateRoute: ActivatedRoute, private dragonBallService: DragonBall, private router: Router) {
     let {id} = this.activateRoute.snapshot.params;
     this.characterDetail$ = this.dragonBallService.getCharacterDetail(id);
 
@@ -44,6 +44,9 @@ export class Detail implements OnInit {
         }
       })
     );
+  }
+  navigatetoHome() {
+    this.router.navigate(['/']).then();
   }
 }
 
