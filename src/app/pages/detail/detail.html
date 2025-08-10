@@ -1,0 +1,88 @@
+<mat-card class="example-card wiki-card" appearance="outlined">
+  <mat-card-header class="wiki-header">
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{this.characterDetail.name}}</mat-card-title>
+  </mat-card-header>
+
+  <img
+    mat-card-image
+    class="character-image"
+    src="{{this.characterDetail.image}}"
+    alt="Image of {{this.characterDetail.name}}"
+  />
+
+  <mat-card-content class="wiki-content">
+    <section class="summary">
+      <h2 class="section-title">Resumen</h2>
+      <p>{{this.characterDetail.description}}</p>
+    </section>
+
+    <section class="stats">
+      <h2 class="section-title">Estadísticas</h2>
+      <dl class="stat-list">
+        <div class="stat">
+          <dt>Ki</dt>
+          <dd>{{this.characterDetail.ki}}</dd>
+        </div>
+        <div class="stat">
+          <dt>Max Ki</dt>
+          <dd>{{this.characterDetail.maxKi}}</dd>
+        </div>
+        <div class="stat">
+          <dt>Género</dt>
+          <dd>{{this.characterDetail.gender}}</dd>
+        </div>
+        <div class="stat">
+          <dt>Carrera</dt>
+          <dd>{{this.characterDetail.race}}</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="origin">
+      <h2 class="section-title">Planeta de origen</h2>
+      <div class="origin-grid">
+        <div class="origin-image-wrap">
+          <img
+            class="planet-image"
+            src="{{this.characterDetail.originPlanet.image}}"
+            alt="Image of {{this.characterDetail.originPlanet.name}}"
+          />
+        </div>
+        <div class="origin-details">
+          <h3 class="origin-name">{{this.characterDetail.originPlanet.name}}</h3>
+          <p class="origin-desc">{{this.characterDetail.originPlanet.despription}}</p>
+          <p class="origin-status">
+            <span class="label">Destroyed:</span>
+            <span
+              class="badge"
+              [class.badge-danger]="this.characterDetail.originPlanet.isDestroyed"
+              [class.badge-success]="!this.characterDetail.originPlanet.isDestroyed"
+            >
+              {{this.characterDetail.originPlanet.isDestroyed ? 'Sí' : 'No'}}
+            </span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="transformations">
+      <h2 class="section-title">Transformaciones</h2>
+      <div class="transformations-grid">
+        @for (item of characterDetail.transformations; track item.id) {
+          <article class="transformation-card">
+            <img
+              class="transformation-image"
+              src="{{item.image}}"
+              alt="{{item.name}} transformation"
+            />
+            <h3 class="transformation-name">{{item.name}}</h3>
+            <p class="transformation-ki"><span class="label">Ki:</span> {{item.ki}}</p>
+          </article>
+        }
+      </div>
+    </section>
+  </mat-card-content>
+</mat-card>
+
+

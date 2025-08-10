@@ -1,0 +1,221 @@
+/* Page backdrop (wiki-like subtle gray) */
+:host {
+  display: block;
+  background: #f6f6f6;
+  padding: 16px 0;
+  color: #202122;
+}
+
+/* Card container with wiki-like border and subdued shadow */
+.wiki-card {
+  max-width: 1100px; /* fits nicely on 1080p while not feeling cramped on 720p */
+  margin: 24px auto;
+  border: 1px solid #a2a9b1; /* Wikipedia-esque border color */
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+  background: #fff;
+}
+
+/* Header styles */
+.wiki-header .mat-mdc-card-title {
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 2px;
+}
+
+.wiki-header .mat-mdc-card-subtitle {
+  color: #54595d;
+}
+
+/* Main character image */
+.character-image {
+  border-top: 1px solid #a2a9b1;
+  border-bottom: 1px solid #a2a9b1;
+  background: #fff;
+  object-fit: contain;
+  max-height: 420px; /* prevents huge images dominating on large screens */
+  width: 100%;
+}
+
+/* Content spacing and typography */
+.wiki-content {
+  padding: 8px 16px 16px;
+}
+
+.wiki-content p {
+  line-height: 1.65;
+  margin: 0.5em 0;
+  color: #202122;
+}
+
+/* Section headings like wiki */
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #202122;
+  margin: 16px 0 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #a2a9b1;
+}
+
+/* Definition list for stats (two-column on desktop, stacks on small screens) */
+.stat-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 8px 24px;
+  margin: 8px 0 16px;
+}
+
+.stat {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 8px;
+  align-items: baseline;
+  padding: 8px 0;
+  border-bottom: 1px dotted #c8ccd1;
+}
+
+.stat:last-child {
+  border-bottom: none;
+}
+
+.stat dt {
+  font-weight: 600;
+  color: #54595d;
+}
+
+.stat dd {
+  margin: 0;
+}
+
+/* Origin Planet layout */
+.origin-grid {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.origin-image-wrap {
+  align-self: start;
+}
+
+.planet-image {
+  width: 100%;
+  height: auto;
+  border: 1px solid #c8ccd1;
+  background: #fff;
+  border-radius: 3px;
+}
+
+.origin-name {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+}
+
+.origin-desc {
+  margin: 0 0 8px;
+}
+
+.label {
+  color: #54595d;
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+/* Status badges */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  border: 1px solid transparent;
+}
+
+.badge-success {
+  color: #165d00;
+  background: #e8f3e6;
+  border-color: #b7d9b0;
+}
+
+.badge-danger {
+  color: #8b0000;
+  background: #faeaea;
+  border-color: #e3b2b2;
+}
+
+/* Transformations grid */
+.transformations-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.transformation-card {
+  background: #f8f9fa;
+  border: 1px solid #c8ccd1;
+  border-radius: 4px;
+  padding: 12px;
+  text-align: center;
+}
+
+.transformation-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid #e1e3e6;
+  border-radius: 3px;
+  margin-bottom: 8px;
+}
+
+.transformation-name {
+  margin: 6px 0 2px;
+  font-size: 1rem;
+}
+
+.transformation-ki {
+  margin: 0;
+  color: #444;
+}
+
+/* Responsive tweaks */
+/* Large tablets / smaller desktops */
+@media (max-width: 1024px) {
+  .transformations-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .origin-grid {
+    grid-template-columns: 160px 1fr;
+  }
+}
+
+/* 720p-friendly width and below */
+@media (max-width: 900px) {
+  .stat-list {
+    grid-template-columns: 1fr;
+  }
+  .transformations-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Narrow phones */
+@media (max-width: 600px) {
+  .wiki-card {
+    margin: 12px;
+  }
+  .origin-grid {
+    grid-template-columns: 1fr;
+  }
+  .character-image {
+    max-height: 320px;
+  }
+  .transformations-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+

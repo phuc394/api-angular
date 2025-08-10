@@ -1,0 +1,165 @@
+/* Layout and page shell */
+.page {
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 600px at 100% -100%, #fff7e6 0%, rgba(255, 247, 230, 0) 60%),
+    linear-gradient(#fafafa, #f6f6f6);
+  color: #1a1a1a;
+}
+
+.content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+}
+
+/* Hero / Intro section */
+.hero {
+  background: linear-gradient(160deg, #fff7e6, #ffffff 60%);
+  border: 1px solid #eee2cc;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(17, 24, 39, 0.06);
+}
+
+.hero-title {
+  margin: 0 0 8px;
+  font-size: 2.2rem;
+  line-height: 1.2;
+  letter-spacing: 0.2px;
+}
+
+.hero-subtitle {
+  margin: 0;
+  color: #4a4a4a;
+  line-height: 1.65;
+  font-size: 1.02rem;
+}
+
+/* Section title */
+.section-title {
+  margin: 28px 4px 14px;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #222;
+}
+
+/* Card grid */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+
+/* Angular Material card tweaks for a wiki-like tile grid */
+.example-card {
+  cursor: pointer;
+  border-radius: 12px;
+  border: 1px solid #e9e9e9;
+  background: #ffffff;
+  transition: box-shadow 160ms ease, transform 160ms ease, border-color 160ms ease;
+  overflow: hidden;
+}
+
+.example-card:hover,
+.example-card:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.12);
+  border-color: #e2e2e2;
+}
+
+mat-card-header {
+  padding-bottom: 8px;
+}
+
+mat-card-title {
+  font-weight: 600;
+  font-size: 1.02rem;
+}
+
+/* Avatar circle with a Dragon Ball–inspired tint */
+.example-header-image {
+  background:
+    radial-gradient(circle at 30% 35%, #ffb347 0%, #ffa726 35%, #f39c12 70%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Ensure consistent image presentation */
+.example-card img[mat-card-image] {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3; /* keeps a tidy grid; remove if you want natural image ratios */
+  object-fit: contain;
+  background: #f5f5f5;
+}
+
+/* Typography polish */
+:where(p, li) {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Responsive adjustments */
+
+/* Laptops around 1280x720 (720p) */
+@media (max-width: 1280px) {
+  .content {
+    padding: 20px 14px 36px;
+    max-width: 1100px;
+  }
+  .hero {
+    padding: 18px;
+  }
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  .hero-subtitle {
+    font-size: 0.98rem;
+  }
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+  }
+}
+
+/* Tablets and small screens */
+@media (max-width: 720px) {
+  .content {
+    padding: 16px 12px 28px;
+    max-width: 100%;
+  }
+  .hero {
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .hero-title {
+    font-size: 1.6rem;
+  }
+  .hero-subtitle {
+    font-size: 0.96rem;
+  }
+  .section-title {
+    font-size: 1.15rem;
+    margin: 18px 2px 10px;
+  }
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+  }
+  .example-card {
+    border-radius: 10px;
+  }
+}
+
+/* Very wide displays (1080p and up) */
+@media (min-width: 1700px) {
+  .content {
+    max-width: 1600px;
+  }
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+  }
+}

@@ -1,0 +1,25 @@
+<section class="page">
+  <div class="content">
+    <header class="hero" role="banner" aria-label="Dragon Ball franchise overview">
+      <h1 class="hero-title">Enciclopedia de Dragon Ball</h1>
+      <p class="hero-subtitle">
+        Dragon Ball es una franquicia japonesa de manga y anime creada por Akira Toriyama. Sigue las aventuras de Goku y sus aliados, desde divertidas travesuras hasta batallas que sacuden el universo, a lo largo de series como Dragon Ball, Dragon Ball Z y Dragon Ball Super, además de películas, videojuegos y spin-offs. Descubre los personajes y la información más importante a continuación.
+      </p>
+    </header>
+
+    <h2 class="section-title">Personajes</h2>
+
+    <div class="container">
+      @for (item of this.myCharacters; track $index) {
+        <mat-card class="example-card" appearance="outlined" (click)="navigateToDetail(item.id)">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image" aria-hidden="true"></div>
+            <mat-card-title>{{ item.name }}</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image [src]="item.image" [alt]="item.name" />
+        </mat-card>
+      }
+    </div>
+  </div>
+</section>
+//(myData$ | async)?.items
